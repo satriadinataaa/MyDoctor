@@ -1,17 +1,31 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { TextInput } from 'react-native-gesture-handler'
-import { ILLogo } from '../../assets'
-const Register = () => {
+import { Button, Gap, Header, Input } from '../../components'
+import { colors } from '../../utils'
+const Register = ({navigation}) => {
     return (
-        <View>
-            <ILLogo/>
-            <Text>Masuk dan mulai berkonsultasi</Text>
-            
+        <View style={styles.page}>
+            <Header onPress={()=>navigation.goBack() } title="Daftar Akun"/>
+            <View style={styles.content}>
+                <Input label="Full Name"/>
+                <Gap height={24}/>
+                <Input label="Pekerjaan"/>
+                <Gap height={24}/>
+                <Input label="Email"/>
+                <Gap height={24}/>
+                <Input label="Password"/>
+                <Gap height={40}/>
+                <Button title="Continue"/>
+            </View>
         </View>
     )
 }
 
 export default Register
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    content:
+        {padding:40,paddingTop:0},  
+    page:
+        {backgroundColor:colors.white,flex:1 }
+})
