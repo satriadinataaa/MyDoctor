@@ -24,6 +24,7 @@ const Router = () => {
             <Stack.Screen name="SignIn" component={SignIn} options={{headerShown:false}}/>
             <Stack.Screen name="MainApp" component={MainApp} options={{headerShown:false}}/>
 
+            <Stack.Screen name="UploadPhoto" component={UploadPhoto} options={{headerShown:false}}/>
         </Stack.Navigator>
     )
 }
