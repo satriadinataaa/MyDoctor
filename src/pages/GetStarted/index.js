@@ -3,7 +3,7 @@ import { ImageBackground, StyleSheet, Text, View } from 'react-native'
 import { ILLogo } from '../../assets'
 import { ILGetStarted } from '../../assets'
 import { Button, Gap } from '../../components'
-import { colors } from '../../utils'
+import { colors, fonts } from '../../utils'
 
 const index = ({navigation}) => {
     return (
@@ -27,5 +27,5 @@ const styles = StyleSheet.create({
     page :
         { padding:40,justifyContent:'space-between',backgroundColor:colors.white,flex:1},
     title:
-        {fontSize:28,marginTop:91,color:colors.white,fontFamily:'Nunito-SemiBold'},
+        {fontSize:28,marginTop:91,color:colors.white,fontFamily:fonts.primary[600]},
 })

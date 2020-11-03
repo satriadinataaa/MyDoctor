@@ -1,6 +1,6 @@
 import React from 'react'
 import {createStackNavigator} from '@react-navigation/stack'
-import { GetStarted, Register, SignIn, Splash } from '../pages';
+import { GetStarted, Register, SignIn, Splash, UploadPhoto } from '../pages';
 const Stack = createStackNavigator();
 const Router = () => {
     return (
@@ -9,6 +9,7 @@ const Router = () => {
             <Stack.Screen name="GetStarted" component={GetStarted} options={{headerShown:false}}/>
             <Stack.Screen name="Register" component={Register} options={{headerShown:false}}/>
             <Stack.Screen name="SignIn" component={SignIn} options={{headerShown:false}}/>
+            <Stack.Screen name="UploadPhoto" component={UploadPhoto} options={{headerShown:false}}/>
         </Stack.Navigator>
     )
 }

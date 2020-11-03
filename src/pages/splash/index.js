@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { ILLogo } from '../../assets'
-import { colors } from '../../utils'
+import { colors, fonts } from '../../utils'
 
 const Splash = ({navigation}) => {
     useEffect(() => {
@@ -25,5 +25,5 @@ const styles = StyleSheet.create({
     page:
         { flex:1, alignItems:'center', justifyContent:'center' },
     text:
-        { fontSize:20,fontFamily:'Nunito-SemiBold',color:colors.text.primary,marginTop:20}
+        { fontSize:20,fontFamily:fonts.primary[600],color:colors.text.primary,marginTop:20}
 })
