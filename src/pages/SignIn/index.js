@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { ILLogo } from '../../assets'
 import { Button, Gap, Input,Link } from '../../components'
 import { colors, fonts } from '../../utils'
-const SignIn = () => {
+const SignIn = ({navigation}) => {
     return (
         <View style={styles.page}>
             <ILLogo/>

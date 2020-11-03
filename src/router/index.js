@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import { GetStarted, Register, SignIn, Splash,Doctor,Messages,Hospital } from '../pages';
+import { GetStarted, Register, SignIn, Splash,Doctor,Messages,Hospital,UploadPhoto} from '../pages';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { BottomNavigator } from '../components';
 const Stack = createStackNavigator();
