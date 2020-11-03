@@ -1,3 +1,3 @@
 import Header from './Header';
-
-export {Header};
+import BottomNavigator from './BottomNavigator';
+export {Header,BottomNavigator};
