@@ -8,12 +8,11 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "emulator-android": "C:\\Users\\Satriadinata\\AppData\\Local\\Android\\Sdk\\emulator\\emulator -avd Nexus_5_API_28"
-    
+    "emulator-android": "C:\\Users\\Satriadinata\\AppData\\Local\\Android\\Sdk\\emulator\\emulator -avd Nexusku"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
-    "@react-navigation/bottom-tabs": "^5.10.2",
+    "@react-navigation/bottom-tabs": "^5.10.6",
     "@react-navigation/native": "^5.8.1",
     "@react-navigation/stack": "^5.11.0",
     "react": "16.13.1",

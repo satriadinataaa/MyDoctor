@@ -1,5 +1,8 @@
+import { TabActions } from '@react-navigation/native';
 import React from 'react'
 import { StyleSheet, Text, View , TouchableOpacity} from 'react-native'
+import { colors } from '../../../utils';
+import { TabItem } from '../../atoms';
 
 const BottomNavigator = ({ state, descriptors, navigation }) => {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
@@ -8,7 +11,7 @@ const BottomNavigator = ({ state, descriptors, navigation }) => {
     return null;
   }
   return (
-    <View style={{ flexDirection: 'row' }}>
+    <View style={styles.container}>
     {state.routes.map((route, index) => {
       const { options } = descriptors[route.key];
       const label =
@@ -40,19 +43,8 @@ const BottomNavigator = ({ state, descriptors, navigation }) => {
       };
 
       return (
-        <TouchableOpacity
-          accessibilityRole="button"
-          accessibilityState={isFocused ? { selected: true } : {}}
-          accessibilityLabel={options.tabBarAccessibilityLabel}
-          testID={options.tabBarTestID}
-          onPress={onPress}
-          onLongPress={onLongPress}
-          style={{ flex: 1 }}
-        >
-          <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
-            {label}
-          </Text>
-        </TouchableOpacity>
+        <TabItem title={label} active={isFocused} onPress={onPress} onLongPress={onLongPress} key={index}/>
+
       );
     })}
   </View>
@@ -61,4 +53,8 @@ const BottomNavigator = ({ state, descriptors, navigation }) => {
 
 export default BottomNavigator
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{
+    flexDirection:'row', justifyContent:'space-between' , paddingHorizontal:53,paddingVertical:12,backgroundColor:colors.secondary
+  }
+})

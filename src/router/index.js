@@ -11,13 +11,13 @@ const MainApp = () => {
         <Tab.Navigator tabBar={props => <BottomNavigator {...props}/>}>
             <Tab.Screen name="Doctor" component={Doctor}/>
             <Tab.Screen name="Messages" component ={Messages}/>
-            <Tab.Screen name="Hospital" component={Hospital}/>
+            <Tab.Screen name="Hospitals" component={Hospital}/>
         </Tab.Navigator>
     )
 }
 const Router = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="Splash">
             <Stack.Screen name="Splash" component={Splash} options={{headerShown:false}}/>
             <Stack.Screen name="GetStarted" component={GetStarted} options={{headerShown:false}}/>
             <Stack.Screen name="Register" component={Register} options={{headerShown:false}}/>
