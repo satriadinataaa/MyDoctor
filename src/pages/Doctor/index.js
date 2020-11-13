@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { DoctorCategory, Gap, HomeProfile, NewsItem, RatedDoctor } from '../../components'
 import { colors, fonts } from '../../utils'
-
+import {JSONCategoryDoctor} from '../../assets';
 const Doctor = () => {
     return (
         <View style={styles.page}>
@@ -18,10 +18,12 @@ const Doctor = () => {
                         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                             <View style={styles.category}>
                                 <Gap width={32}/>
-                                <DoctorCategory/>
-                                <DoctorCategory/>
-                                <DoctorCategory/>
-                                <DoctorCategory/>
+                                {
+                                    JSONCategoryDoctor.data.map(item => {
+                                        return <DoctorCategory category={item.category} key={item.id}/>
+                                    })
+                                }
+                               
                                 <Gap width={22}/>
                             </View>
                         </ScrollView>
