@@ -2,9 +2,15 @@ import React from 'react'
 import { StyleSheet, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { colors } from '../../../utils'
+import ButtonIcon from './ButtonIcon'
 import IconOnly from './IconOnly'
 
 const Button =  ({type,title,onPress,icon }) => {
+    if(type === 'btn-icon'){
+        return(
+            <ButtonIcon/>
+        )
+    }
     if(type === 'icon-only'){
         return(
             <IconOnly icon={icon} onPress={onPress}/>

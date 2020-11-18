@@ -1,12 +1,13 @@
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 import { IconNext } from '../../../assets'
 
 import { colors, fonts } from '../../../utils'
 
-const ListDoctor = ({profile,name,desc,type}) => {
+const ListDoctor = ({profile,name,desc,type,onPress}) => {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity onPress={onPress} style={styles.container}>
             <Image source={profile} style={styles.avatar}/> 
             <View style={styles.content}>
             <Text style={styles.name}>{name}</Text>
@@ -15,8 +16,7 @@ const ListDoctor = ({profile,name,desc,type}) => {
             {
                 type === 'next' && <IconNext/>
             }
-        
-        </View>
+        </TouchableOpacity>
     )
 }
 

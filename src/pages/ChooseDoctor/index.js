@@ -8,11 +8,11 @@ const ChooseDoctor = ({navigation}) => {
     return (
         <View style={styles.page}>
             <Header type="dark" title="Pilih Dokter Anak"  onPress={()=>navigation.goBack() } />
-            <ListDoctor type="next" profile={DummyDoctor1} name="Alexander Janie" desc="Wanita"/>
-            <ListDoctor type="next" profile={DummyDoctor1} name="Alexander Janie" desc="Wanita"/>
-            <ListDoctor type="next" profile={DummyDoctor1} name="Alexander Janie" desc="Wanita"/>
-            <ListDoctor type="next" profile={DummyDoctor1} name="Alexander Janie" desc="Wanita"/>
-            <ListDoctor type="next" profile={DummyDoctor1} name="Alexander Janie" desc="Wanita"/>
+            <ListDoctor type="next" onPress={()=> navigation.navigate('Chatting')}profile={DummyDoctor1} name="Alexander Janie" desc="Wanita"/>
+            <ListDoctor type="next" onPress={()=> navigation.navigate('Chatting')}profile={DummyDoctor1} name="Alexander Janie" desc="Wanita"/>
+            <ListDoctor type="next" onPress={()=> navigation.navigate('Chatting')}profile={DummyDoctor1} name="Alexander Janie" desc="Wanita"/>
+            <ListDoctor type="next" onPress={()=> navigation.navigate('Chatting')}profile={DummyDoctor1} name="Alexander Janie" desc="Wanita"/>
+            <ListDoctor type="next" onPress={()=> navigation.navigate('Chatting')}profile={DummyDoctor1} name="Alexander Janie" desc="Wanita"/>
            
         </View>
     )
