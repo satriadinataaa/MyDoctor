@@ -8,9 +8,12 @@ const Chatting = () => {
         <View style={styles.page}>
             <Header title="Zahra Salsabila" type="dark-profile"/>
             <Text style={styles.chatDate}>Rabu, 18 Nov 2020</Text>
-            <ChatItem/>
-            <ChatItem/>
-            <ChatItem/>
+            <View style={styles.content}>
+                <ChatItem isMe/>
+                <ChatItem/>
+                <ChatItem isMe/>
+            </View>
+            
             <InputChat/>
         </View>
     )
@@ -21,6 +24,9 @@ export default Chatting
 const styles = StyleSheet.create({
     page:{
         backgroundColor:colors.white,
+        flex:1
+    },
+    content:{
         flex:1
     },
     chatDate:{

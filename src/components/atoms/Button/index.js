@@ -2,13 +2,13 @@ import React from 'react'
 import { StyleSheet, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { colors } from '../../../utils'
-import ButtonIcon from './ButtonIcon'
+import ButtonIconSend from './ButtonIconSend'
 import IconOnly from './IconOnly'
 
-const Button =  ({type,title,onPress,icon }) => {
-    if(type === 'btn-icon'){
+const Button =  ({type,title,onPress,icon,disable }) => {
+    if(type === 'btn-icon-send'){
         return(
-            <ButtonIcon/>
+            <ButtonIconSend disable={disable}/>
         )
     }
     if(type === 'icon-only'){

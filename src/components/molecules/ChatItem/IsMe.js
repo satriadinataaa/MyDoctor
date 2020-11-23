@@ -1,19 +1,19 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native';
 import { colors, fonts } from '../../../utils'
-import IsMe from './IsMe'
-import Other from './Other'
 
-const ChatItem = ({isMe}) => {
-    if(isMe){
-        return <IsMe/>
-    }
-    return <Other/>
-   
+const IsMe = () => {
+    return (
+        <View style={styles.container}>
+        <View style={styles.chatContent}>
+            <Text style={styles.text}>Halo Dok, Apakah mabok jeruk itu buruk?</Text>
+        </View>
+        <Text style={styles.date}>4.20 AM</Text>
+    </View>
+    )
 }
 
-export default ChatItem
-
+export default IsMe
 const styles = StyleSheet.create({
     container:{
         
@@ -41,3 +41,4 @@ const styles = StyleSheet.create({
         marginTop:8
     }
 })
+
