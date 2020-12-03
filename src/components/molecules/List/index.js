@@ -5,7 +5,10 @@ import { IconNext } from '../../../assets'
 
 import { colors, fonts } from '../../../utils'
 
-const ListDoctor = ({profile,name,desc,type,onPress}) => {
+const List = ({profile,name,desc,type,onPress,icon}) => {
+    const Icon = () => {
+        return icon
+    }
     return (
         <TouchableOpacity onPress={onPress} style={styles.container}>
             <Image source={profile} style={styles.avatar}/> 
@@ -20,7 +23,7 @@ const ListDoctor = ({profile,name,desc,type,onPress}) => {
     )
 }
 
-export default ListDoctor
+export default List
 
 const styles = StyleSheet.create({
     container:{
