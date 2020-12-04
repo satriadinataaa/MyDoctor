@@ -9,7 +9,7 @@ const UserProfile = ({navigation}) => {
             <Gap height={10}/>
             <Profile/>
             <Gap height={14}/>
-            <List name="Edit Profile" desc="Last Update Yesterday" type="next" icon="edit-profile" />
+            <List name="Edit Profile" desc="Last Update Yesterday" type="next" icon="edit-profile" onPress={()=>navigation.navigate('UpdateProfile')} />
             <List name="Edit Profile" desc="Last Update Yesterday" type="next" icon="language" />
             <List name="Edit Profile" desc="Last Update Yesterday" type="next" icon="rate" />
             <List name="Edit Profile" desc="Last Update Yesterday" type="next" icon="help" />
