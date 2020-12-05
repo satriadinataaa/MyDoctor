@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { DoctorCategory, Gap, HomeProfile, NewsItem, RatedDoctor } from '../../components'
 import { colors, fonts } from '../../utils'
-import {JSONCategoryDoctor} from '../../assets';
+import {DummyDoctor1, DummyDoctor2, DummyDoctor3, JSONCategoryDoctor} from '../../assets';
 const Doctor = ({navigation}) => {
     return (
         <View style={styles.page}>
@@ -30,9 +30,9 @@ const Doctor = ({navigation}) => {
                     </View>
                     <View style={styles.wrapperSection}>
                         <Text style={styles.sectionLabel}>Top Rated Doctor</Text>
-                        <RatedDoctor/> 
-                        <RatedDoctor/> 
-                        <RatedDoctor/> 
+                        <RatedDoctor name="Alexa Rachel" desc="Pediatrician" avatar={DummyDoctor1} onPress={()=> navigation.navigate('DoctorProfile')}/> 
+                        <RatedDoctor name="Satriadinata" desc="Dokter Dota" avatar={DummyDoctor2} onPress={()=> navigation.navigate('DoctorProfile')}/> 
+                        <RatedDoctor name="Zahra Salsabila" desc="Dokter Bocah" avatar={DummyDoctor3} onPress={()=> navigation.navigate('DoctorProfile')}/> 
                         <Text style={styles.sectionLabel}>Good News</Text>
                     </View>
                     

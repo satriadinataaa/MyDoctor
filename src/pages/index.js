@@ -10,4 +10,5 @@ import ChooseDoctor from './ChooseDoctor';
 import Chatting from './Chatting';
 import UserProfile from './UserProfile';
 import UpdateProfile from './UpdateProfile';
-export {Splash,GetStarted,Register,SignIn,UploadPhoto,Hospital,Doctor,Messages,ChooseDoctor,Chatting,UserProfile,UpdateProfile};
+import DoctorProfile from './DoctorProfile';
+export {Splash,GetStarted,Register,SignIn,UploadPhoto,Hospital,Doctor,Messages,ChooseDoctor,Chatting,UserProfile,UpdateProfile,DoctorProfile};
