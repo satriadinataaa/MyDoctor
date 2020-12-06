@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import { Button, Gap, Header, Input, Loading } from '../../components'
 import { Firebase } from '../../config'
-import { colors,useForm } from '../../utils'
+import { colors,useForm,storeData    } from '../../utils'
 import { showMessage, hideMessage } from "react-native-flash-message";
+
 const Register = ({navigation}) => {
     //const [fullName, setFullName] = useState('');
     //const [profession, setProfession] = useState('');
@@ -20,14 +21,29 @@ const Register = ({navigation}) => {
     const onContinue = () =>{
       
         console.log(form);
-        
-        setloading(true);
+      
+      
+    setloading(true);
         Firebase.auth().createUserWithEmailAndPassword(form.email, form.password)
         .then((success) => {
+           
+            
+           setloading(false);
+           setForm('reset');
+           
+           console.log(form);
+            const data = {
+                fullName: form.fullName,
+                profession: form.profession,
+                email: form.email,
+            };
+           
+            storeData('user',data);
+            Firebase.database().ref('users/'+success.user.uid+'/').set(data);
+            navigation.navigate('UploadPhoto')
             console.log('register sukses : ',success);
-            setloading(false);
-            setForm('reset');
-            navigation.replace('SignIn');
+           
+           
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -38,8 +54,8 @@ const Register = ({navigation}) => {
                 backgroundColor: colors.error,
                 color: colors.white
               });
-        });
-        //() => navigation.navigate('UploadPhoto')
+        }); 
+        
     }
     return (
         <>
