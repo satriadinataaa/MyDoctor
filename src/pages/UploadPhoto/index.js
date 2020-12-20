@@ -3,29 +3,46 @@ import React, { useState } from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { IconAddPhoto, IconRemovePhoto, ILNullPhoto } from '../../assets'
 import { Button,Gap,Header, Link } from '../../components'
-import { colors, fonts } from '../../utils'
+import { colors, fonts, storeData } from '../../utils'
 import ImagePicker from 'react-native-image-picker';
 import { showMessage, hideMessage } from "react-native-flash-message";
-const UploadPhoto = ({navigation}) => {
+import { Firebase } from '../../config'
+const UploadPhoto = ({navigation,route}) => {
+    const {fullName,profession, uid,email} = route.params;
     const [hasPhoto, sethasPhoto] = useState(false);
     const [photo, setPhoto] = useState(ILNullPhoto);
+    const [photoForDB, setphotoForDB] = useState('');
     const getImage = () => {
-        ImagePicker.launchImageLibrary({}, (response) => {
+        ImagePicker.launchImageLibrary({quality: 0.9, maxWidth:200 , maxHeight:200}, (response) => {
             // Same code as in above section!
             console.log('response : ',response);
             if(response.didCancel || response.error ){
                 showMessage({
                     message: "Oops sepertinya anda tidak jadi memilih foto",
+                    type: 'default',
                     backgroundColor: colors.error,
                     color: colors.white
                   });
             }
             else{
-            const source = {uri : response.uri};
-            setPhoto(source);
-            sethasPhoto(true);
+                console.log('response foto :',response);
+                setphotoForDB(`data:${response.type};base64, ${response.data}`);
+                console.log('Photoku : ',photoForDB)
+              
+                const source = {uri : response.uri};
+                setPhoto(source);
+                sethasPhoto(true);
             }
           });
+    }
+
+    const UploadAndContinue = ()=> {
+        Firebase.database().ref('users/'+uid+'/').update({photo : photoForDB});
+        const data  = route.params;
+        data.photo  = photoForDB;
+
+        storeData('user',data);
+        navigation.replace('MainApp');
     }
     return (
         <View style={styles.page}>
@@ -43,11 +60,11 @@ const UploadPhoto = ({navigation}) => {
                         
                         
                     </TouchableOpacity>
-                    <Text style={styles.name}>Satriadinata</Text>
-                    <Text style={styles.profession}>Product Designer</Text>
+                    <Text style={styles.name}>{fullName}</Text>
+                    <Text style={styles.profession}>{profession}</Text>
                 </View>
                 <View>
-                    <Button disable={!hasPhoto} title="Upload and Continue" onPress={()=>navigation.replace('MainApp')}/>
+                    <Button disable={!hasPhoto} title="Upload and Continue" onPress={UploadAndContinue}/>
                     <Gap height={30}/>
                     <Link title="Skip for this" align="center" size={16} onPress={()=>navigation.replace('MainApp')}/>
                 </View>

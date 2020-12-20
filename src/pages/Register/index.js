@@ -36,11 +36,12 @@ const Register = ({navigation}) => {
                 fullName: form.fullName,
                 profession: form.profession,
                 email: form.email,
+                uid: success.user.uid,
             };
            
             storeData('user',data);
             Firebase.database().ref('users/'+success.user.uid+'/').set(data);
-            navigation.navigate('UploadPhoto')
+            navigation.navigate('UploadPhoto',data);
             console.log('register sukses : ',success);
            
            

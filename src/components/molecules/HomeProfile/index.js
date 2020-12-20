@@ -1,16 +1,29 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-import { DummyUser } from '../../../assets'
-import { colors, fonts } from '../../../utils'
+import { DummyUser, ILNullPhoto } from '../../../assets'
+import { colors, fonts,getData } from '../../../utils'
 
 const index = ({onPress}) => {
+    const [profile, setProfile] = useState({
+        photo : ILNullPhoto,
+        fullName: '',
+        profession:'',
+    })
+    useEffect(() => {
+        getData('user').then(res => {
+            console.log('data user:' , res);
+            const data = res;
+            data.photo = {uri: res.photo};
+            setProfile(data);
+        })
+    }, []);
     return (
         <TouchableOpacity style={styles.container} onPress={onPress}>
-            <Image source={DummyUser} style={styles.avatar }/>
+            <Image source={profile.photo} style={styles.avatar }/>
             <View>
-                <Text style={styles.name}>Shayna Melinda</Text>
-                <Text>Product Designer</Text>
+                <Text style={styles.name}>{profile.fullName}</Text>
+                <Text>{profile.profession}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -29,9 +42,9 @@ const styles = StyleSheet.create({
         marginRight:12
     },
     name:{
-        fontSize:16,fontFamily:fonts.primary[600],color:colors.text.primary
+        fontSize:16,fontFamily:fonts.primary[600],color:colors.text.primary,textTransform:'capitalize'
     },
     profession:{
-        fontSize:12,fontFamily:fonts.primary[400],color:colors.text.secondary
+        fontSize:12,fontFamily:fonts.primary[400],color:colors.text.secondary,extTransform:'capitalize'
     }
 })
