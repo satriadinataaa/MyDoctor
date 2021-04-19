@@ -9,7 +9,7 @@ const Other = () => {
             <Image source={DummyDoctor9} style={styles.avatar}/>
             <View>
                 <View style={styles.chatContent}>
-                    <Text style={styles.text}>Halo Dok, Apakah mabok jeruk itu buruk?</Text>
+                    <Text style={styles.text}>Iya Bu, Boleh. Saran saya ibu minum oralit setiap siang hari.</Text>
                 </View>
                 <Text style={styles.date}>4.20 AM</Text>
             </View>
